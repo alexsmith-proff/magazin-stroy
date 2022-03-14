@@ -25,7 +25,7 @@ userRouter.post('/register', async (req, res) => {
         const activationLink = uuidv4()
 
         //Отправляем письмо на почту для активациии
-        await sendMail(email, activationLink)        
+        // await sendMail(email, activationLink)        
 
         // Хешируем password
         const hashedPassword = await bcrypt.hash(password, 12)
