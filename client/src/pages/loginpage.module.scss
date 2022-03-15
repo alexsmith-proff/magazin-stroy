@@ -12,7 +12,7 @@
     font-size: 18px;
     line-height: 18px;
     width: 476px;
-    padding: 40px;
+    padding: 30px;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     box-sizing: border-box;
@@ -20,18 +20,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    position: relative;
-}
-.close{
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    font-size: 16px;
-    padding: 5px;
-    cursor: pointer;    
-}
-.close:hover{
-    background-color: #ddd;
 }
 .titlewrap{
     display: flex;
@@ -79,7 +67,7 @@
     font-family: Manrope;
     font-size: 16px;
 }
-.registerbtn{
+.logbtn{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -98,7 +86,7 @@
     color: #847E95;
     cursor: pointer;  
 }
-.registerbtn:hover{
+.logbtn:hover{
     background-color: #000;
     color: #fff;
 }
@@ -109,15 +97,13 @@
     margin-bottom: 15px;
 }
 .checkboxText{
-    // font-family: Manrope;
+    font-family: Manrope;
     font-size: 14px;
     line-height: 19px;
     margin-left: 10px;
-    color: #000;
 }
 .link{
-    font-size: 14px;
-    line-height: 19px;
+    text-decoration: none;
     color: #888;
 }
 
@@ -152,10 +138,4 @@
 }
 .confirmpasswordalert{
     top: 202px;
-}
-.firstnamealert{
-    top: 268px;
-}
-.lastnamealert{
-    top: 330px;
 }

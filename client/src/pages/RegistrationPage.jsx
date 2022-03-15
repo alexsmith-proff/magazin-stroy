@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import validator from 'validator';
-import { useNavigate } from 'react-router';
+import { Navigate, useNavigate } from 'react-router';
 
 import st from './registrationpage.module.scss';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import allEndpoints from '../services/api/api.js';
 
 function RegistrationPage() {
@@ -39,6 +39,9 @@ function RegistrationPage() {
 
     const handleChangeConfirmPassword = (e) => {
         setConfirmPassword(e.target.value);
+    }
+    const handleCloseClick = (e) => {
+      navigate('/')
     }
 
     const handleRegisterClick = async() => {
@@ -112,6 +115,8 @@ function RegistrationPage() {
           </div>
         </div> */}
 
+        <div className={st.close} onClick={handleCloseClick}>X</div>
+
         {isEmailAlert && <div className={st.alert + ' ' + st.mailalert}>Вы ввели некорректный email</div>}
         {isPasswordAlert && <div className={st.alert + ' ' + st.passwordalert}>Пароль должен содержать более 5 символов </div>}
         {isConfirmPasswordAlert && <div className={st.alert + ' ' + st.confirmpasswordalert}>Пароль не совпадает</div>}
@@ -119,6 +124,7 @@ function RegistrationPage() {
         {isLastNameAlert && <div className={st.alert + ' ' + st.lastnamealert}>Введите фамилию</div>}
 
       </div>
+
     </div>
     
 

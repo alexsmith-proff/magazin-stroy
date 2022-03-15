@@ -1,3 +1,4 @@
+import { tokenModel } from "../models/token.model.js";
 import { userModel } from "../models/user.model.js";
 
 export async function findUser(field, value) {
@@ -10,6 +11,31 @@ export async function findUserLink(link) {
     return await userModel.findOne({
         activationLink: link
     })
+}
+
+export async function findUserByToken(token) {
+    return await tokenModel.findOne({accessToken: token}).populate('user')
+
+
+    // return await userModel.findOne({
+    //     accessToken: token
+    // })
+
+    // console.log('findUserByToken (token): ', token)
+
+
+
+    // const tokenFind = await tokenModel.findOne({
+    //     accessToken: token
+    // })
+    // console.log('findUserByToken (tokenFind): ', tokenFind)
+
+    // if(!tokenFind) {
+    //     return null
+    // }
+    // console.log(tokenFind.user)
+
+    // return await userModel.findById(tokenFind.user)
 }
 
 export async function userSaveDB(userData, link) {
@@ -27,9 +53,9 @@ export async function userSaveDB(userData, link) {
     return user
 }
 
-// Проверяет активирован пользьзователь
+// Проверяет активирован пользователь
 export async function isUserActivate(email) {
-    const userN = await User.findOne({
+    const userN = await userModel.findOne({
         email: email
     })
     if(userN.isActivated) {
