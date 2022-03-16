@@ -1,6 +1,11 @@
 .header{
+    position: fixed;
+    top: 0;
+    z-index: 99;
     padding: 10px 0;
     box-shadow: 0px 2px 25px 7px rgba(34, 60, 80, 0.18);
+    width: 100%;
+    background-color: #fff;
     &Wrap{
         display: flex;
         align-items: center;

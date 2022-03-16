@@ -55,11 +55,7 @@ function Header() {
                                     <Link className={st.registerBtn} to="/register">Регистрация</Link>
                                 </div>
                             )
-                        
-
                     }
-
-                    
 
                     <Link to="/cart" className={st.cart}>
                         <img src={cart} alt="cart" />
