@@ -42,9 +42,9 @@ export async function userSaveDB(userData, link) {
     const user = new userModel({
         email: userData.email,
         password: userData.password,
-        name: userData.name,
-        middlename: userData.middlename,
-        surname: userData.surname,
+        name: userData.firstName,
+        // middlename: userData.middlename,
+        surname: userData.lastName,
         activationLink: link
     })
     // Записываем в БД, Создаем пользователя в БД

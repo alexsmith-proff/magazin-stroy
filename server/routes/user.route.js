@@ -142,23 +142,15 @@ userRouter.get('/me', async (req, res) => {
         }
 
         const user = await findUserByToken(token)
-        // const user = await findUser('accessToken', token)
-
-        console.log('user = ', user)
-        
-
-
-       
-
-        // console.log(token)
-        console.log('ssssssss')
-
-        
-
+        if(!user) {
+            return res.status(500).json({
+                message: 'Ошибка сервера'
+            })
+        }
 
         // Ответ клиенту
         res.status(200).json({
-            message: 'OKay'  
+            user: user.user
         })
 
 

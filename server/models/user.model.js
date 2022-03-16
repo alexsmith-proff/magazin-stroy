@@ -14,10 +14,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: null
     },
-    middlename: {
-        type: String,
-        default: null
-    },
+    // middlename: {
+    //     type: String,
+    //     default: null
+    // },
     surname: {
         type: String,
         default: null

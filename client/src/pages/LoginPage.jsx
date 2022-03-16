@@ -5,6 +5,7 @@ import validator from 'validator';
 import allEndpoints from '../services/api/api.js';
 
 import st from './loginpage.module.scss';
+import { getUserData } from '../redux/user/userSlice.js';
 //import { setUserData } from '../feature/user/userSlice';
 
 
@@ -40,9 +41,9 @@ function LoginPage() {
             "email": email,
             "password": password                              
           })
-          console.log(response)
+          // console.log(response)
           localStorage.setItem('accessToken', response.data.accessToken)
-          //dispatch(setUserData(response.data.user))
+          dispatch(getUserData())
           navigate('/')          
         } catch (e) {
           if(e.response.status === 422){

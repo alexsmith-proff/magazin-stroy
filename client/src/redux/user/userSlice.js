@@ -8,7 +8,8 @@ const initialState = {
 export const getUserData = createAsyncThunk('user/getUserData', async(_, { rejectWithValue, dispatch }) => {
     // Запрос
     const response = await allEndPoints.auth.getProfile({})
-    dispatch(setUserData(response.data))
+    // console.log(response.data.user)
+    dispatch(setUserData(response.data.user))
 })
 
 export const userSlice = createSlice({
@@ -26,5 +27,6 @@ export const userSlice = createSlice({
     }
 })
 
+// экспортируем экшен и редьюсер
 export const { setUserData } = userSlice.actions
-export default userSlice.reducers
+export default userSlice.reducer

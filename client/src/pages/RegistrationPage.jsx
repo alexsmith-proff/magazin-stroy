@@ -7,7 +7,7 @@ import st from './registrationpage.module.scss';
 import allEndpoints from '../services/api/api.js';
 
 function RegistrationPage() {
-  const [email, setEmail] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');

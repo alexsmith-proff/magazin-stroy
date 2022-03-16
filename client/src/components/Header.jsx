@@ -1,20 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import st from './header.module.scss'
 import logo from '../assets/img/logo.png'
 import find from '../assets/img/find.png'
 import cart from '../assets/img/cart.png'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'
+import { setUserData } from '../redux/user/userSlice'
 
-import allEndpoints from '../services/api/api.js';
+// import allEndpoints from '../services/api/api.js'
+// import { set } from 'immer/dist/internal';
 
 function Header() {
-    // const userdata = useSelector(state => state.user.user)
-    // console.log(userdata)
 
-    const handlerMeClick = async() => {
-        const response = await allEndpoints.auth.getProfile()
-        //   console.log(response)
+    const dispatch = useDispatch()
+    const userdata = useSelector(state => state.user.user)    
+    
+    const handlerLogoutClick = () => {
+        localStorage.removeItem('accessToken');
+        dispatch(setUserData({}))
     }
 
   return (
@@ -36,11 +39,28 @@ function Header() {
                         </div>
                 </div>
                 <div className={st.wrapR}>
-                    <div className={st.auth}>
-                        <div className={st.loginBtn} onClick={handlerMeClick}>Me</div>
-                        <Link className={st.loginBtn} to="/login">Войти</Link>
-                        <Link className={st.registerBtn} to="/register">Регистрация</Link>
-                    </div>
+                    {
+                        Object.keys(userdata).length ?
+                            (
+                                <>
+                                <div className={st.name}>Привет, {userdata.surname} {userdata.name} </div>
+                                <Link className={st.loginBtn} to="/" onClick={handlerLogoutClick}>Выйти</Link>
+                                </>
+                            )
+                        :
+                            (
+                                <div className={st.auth}>
+                                    {/* <div className={st.loginBtn} onClick={handlerMeClick}>Me</div> */}
+                                    <Link className={st.loginBtn} to="/login">Войти</Link>
+                                    <Link className={st.registerBtn} to="/register">Регистрация</Link>
+                                </div>
+                            )
+                        
+
+                    }
+
+                    
+
                     <Link to="/cart" className={st.cart}>
                         <img src={cart} alt="cart" />
                     </Link>
