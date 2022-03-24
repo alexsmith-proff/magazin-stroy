@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import st from './header.module.scss'
 import logo from '../assets/img/logo.png'
@@ -6,6 +6,10 @@ import find from '../assets/img/find.png'
 import cart from '../assets/img/cart.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { setUserData } from '../redux/user/userSlice'
+import { getCategoryData, setCategoryData } from '../redux/category/categorySlice'
+import Catalog from './Catalog'
+import allEndPoints from '../services/api/api'
+import arrayToTree from '../services/category/category.service'
 
 // import allEndpoints from '../services/api/api.js'
 // import { set } from 'immer/dist/internal';
@@ -13,11 +17,33 @@ import { setUserData } from '../redux/user/userSlice'
 function Header() {
 
     const dispatch = useDispatch()
-    const userdata = useSelector(state => state.user.user)    
+    const userdata = useSelector(state => state.user.user) 
+
+    const [categoryVisible, setCategoryVisible] = useState(false)
+    const[categoryTree, setCategoryTree] = useState([])
+
+
+    useEffect(async() => {
+
+        const response = await allEndPoints.category.getCategory()
+        setCategoryTree(arrayToTree(response.data.categories))
+
+        // console.log(categoryTree);
+
+        dispatch(getCategoryData())
+    }, [])
     
     const handlerLogoutClick = () => {
         localStorage.removeItem('accessToken');
         dispatch(setUserData({}))
+    }
+
+    async function handleClickCatalog() {
+        setCategoryVisible(!categoryVisible)
+    }
+
+    function CloseCatalog(e) {
+        setCategoryVisible(false)
     }
 
   return (
@@ -29,7 +55,12 @@ function Header() {
                         <img src={logo} alt="logo" />
                         <div className={st.name}>СтройМагазин</div>
                     </Link>
-                    <div className={st.catalog}>КАТАЛОГ</div>
+                    <div className={st.catalog} onClick={handleClickCatalog}>КАТАЛОГ</div>
+                    {
+                    categoryVisible &&
+                        <Catalog closeCat={CloseCatalog} arr={categoryTree}/>
+                    }
+
                     
                 </div>
                 <div className={st.finder}>

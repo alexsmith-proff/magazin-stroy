@@ -76,15 +76,15 @@ userRouter.post('/login', async (req, res) => {
 
         // console.log('1')
 
-        // Проверка активации аккаунта
-        const isUserActive = await  isUserActivate(email)
-        console.log('isUserActive', isUserActive)
-        if(!isUserActive) {
-            console.log('Аккаунт не активирован')
-            return res.status(500).json({
-                message: 'Аккаунт не активирован'  
-            })          
-        }
+        // // Проверка активации аккаунта
+        // const isUserActive = await  isUserActivate(email)
+        // console.log('isUserActive', isUserActive)
+        // if(!isUserActive) {
+        //     console.log('Аккаунт не активирован')
+        //     return res.status(500).json({
+        //         message: 'Аккаунт не активирован'  
+        //     })          
+        // }
 
         // console.log('2')
 
