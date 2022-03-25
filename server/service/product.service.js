@@ -1,7 +1,7 @@
 import { productModel } from "../models/product.model.js";
 
 export async function productSaveDB(productData) {
-    // console.log(productData);
+    console.log(productData);
     const product = new productModel({
         name: productData.name,
         description: productData.description,
@@ -10,7 +10,7 @@ export async function productSaveDB(productData) {
         price: productData.price,
         // active: productData.active,
 
-        // mainPhoto: productData.mainPhoto,
+        mainPicture: productData.mainPicture,
         // arrPhotos: [productData.arrPhotos]
     })
 

@@ -19,21 +19,12 @@ import allEndPoints from '../services/api/api';
 function CarouselComp() {
     const [carouselData, setCarouselData] = useState([])
 
-
-    
-
     useEffect(async() => {
-        console.log('useE')
         allEndPoints.carousel.getCarousel().then((response) => {
+            console.log('carousel', response.data)
             setCarouselData(response.data)
-            // console.log(res.data)
         })
-
-        // setCarouselData(response.data)
-        // console.log('eff', carouselData)
     }, [])
-
-    console.log('f', carouselData)
 
     var settings = {
         dots: false,

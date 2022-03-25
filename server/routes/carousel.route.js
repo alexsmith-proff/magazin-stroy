@@ -8,7 +8,7 @@ export const carouselRouter = Router()
 carouselRouter.post('/create', async (req, res) => {
     try {
         const fileName = saveFile('img/static', req.files.picture)
-        saveCarouselItemDB({...req.body, picture: fileName})
+        await saveCarouselItemDB({...req.body, picture: fileName})
 
         res.status(201).json({...req.body, picture: fileName})
         
