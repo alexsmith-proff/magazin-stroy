@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { categorySaveDB, getCategories, getProductsByCategory } from "../service/category.service.js";
+import { productModel } from "../models/product.model.js";
+import { categorySaveDB, getCategories, getChildCategory, getProductsByCategory } from "../service/category.service.js";
 
 export const categoryRouter = Router()
 
@@ -36,9 +37,9 @@ categoryRouter.get('/', async (req, res) => {
 
 categoryRouter.get('/:id', async (req, res) => {
     try {
-        const products = await getProductsByCategory(req.params.id)
-        console.log('products = ', products);
-
+        let parentCategoryArr = await getChildCategory(req.params.id)
+        // console.log('parentCategoryArr = ', parentCategoryArr);
+        let products = await getProductsByCategory(parentCategoryArr)
         res.status(200).json(products)        
     } catch (error) {
         res.status(500).json({

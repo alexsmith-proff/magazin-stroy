@@ -1,4 +1,4 @@
-ul, li, {
+ul, li {
 	margin: 0;
     padding: 0;
 }
@@ -14,7 +14,7 @@ li{
     margin-bottom: 40px;
 }
 .catalogMenu{
-    background-color: rgba(255, 255, 255, .75);
+    background-color: rgba(255, 255, 255, .9);
     position: absolute;
     left: 0;
     top: 72px;
@@ -22,26 +22,14 @@ li{
     display: block;
     height: 100vh;
 }
-.menuFirstLevel{
-    
-    
-}
+
 .menuList{
     padding-top: 50px;
     display: none;
+    // background-color: #eee;
+    height: 100%;
     
 }
-// .menuList:after{
-//     content: '';
-//     display: block;
-//     background-color: #000;
-//     width: 3px;
-//     height: 80%;
-//     position: absolute;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     right: -50px;
-// }
 
 .menuFirstLevel{
     display: inline-block;  
@@ -54,8 +42,6 @@ li{
     top: 0;
     left: 280px;
     padding-left: 100px;
-    // margin-left: 400px;
-    // background-color: #777;
 }
 
 
