@@ -1,0 +1,31 @@
+.breadcrumbs{
+    padding-top: 40px;
+    &__list{
+        display: flex;
+        align-items: center;
+    }
+    &__item{
+        margin-right: 10px;
+        a{
+            font-size: 18px;
+            line-height: 18px;
+            color: #000;
+        }
+        img{
+            display: inline-block;
+            margin-left: 10px;
+            // position: relative;
+            transform: translateY(2px);
+        }
+        &:hover a {
+            // color: rgb(255, 22, 22);
+            text-shadow:0px 0px 1px rgb(255, 22, 22);
+            // font-weight: bold;
+        }
+        &:last-child img{
+            display: none;
+        }
+    }
+    
+    
+}

@@ -1,45 +1,50 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import { useSelector } from 'react-redux'
+import BreadCrumbs from '../components/BreadCrumbs'
 import allEndPoints from '../services/api/api'
 import axiosInstance from '../services/api/axios/axios'
 import st from './categorypage.module.scss'
+import { breadCrumbs, FindIdBySlug } from '../services/category/category.service'
 
 function CategoryPage() {
 
   let { slugUrl } = useParams()
-  // const categoryArr = useSelector(state => state.category.catalog)
-
-  // const[catalogArr, setCatalogArr] = useState([])
+  const [breadCrumbsArr, setBreadCrumbsArr] = useState([])
   const[products, setProducts] = useState([])
+
+  let allCategory = useSelector(state => state.category.catalog) 
 
   useEffect(() => {
     setProducts([])
   }, [slugUrl])
   
-
-
   useEffect(async() => {
-    const response = await allEndPoints.category.getCategory()
-    console.log('FindId', FindId(slugUrl, response.data.categories));
+    if(allCategory.length == 0){
+      const response = await allEndPoints.category.getCategory()
+      allCategory = response.data.categories
+    }
 
-    const products = await axiosInstance.get('/api/category/' + FindId(slugUrl, response.data.categories))
-    console.log('useEffect', products);
+    let categoryId = FindIdBySlug(slugUrl, allCategory)
+
+    // console.log('FindId', FindId(slugUrl, allCategory));
+
+    const products = await axiosInstance.get('/api/category/' + categoryId)
+    // console.log('useEffect', products);
+
+    setBreadCrumbsArr(breadCrumbs(categoryId, allCategory))
     setProducts(products.data)
   }, [slugUrl])
   
-  function FindId(slug, arr) {
-    const resultArr = arr.filter((item) => item.slug == slug)
-    return resultArr[0]._id
-  }
   
-  console.log('CategoryPage');
+  
+  // console.log('CategoryPage');
 
   return (
     <div>
-      {/* CategoryPage */}
-      {/* <h1>Slug:  {slugUrl}</h1> */}
-
       <div className="container">
+        {/* <BreadCrumbs allCatalog={allCategory} slug={slugUrl}/>         */}
+        <BreadCrumbs breadCrumbsArr={breadCrumbsArr}/>        
         <ul className={st.card__list}>
           {
           products.map((item, index) => (

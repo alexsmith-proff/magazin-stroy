@@ -10,8 +10,8 @@ function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    // dispatch(getUserData())
-    // dispatch(getCategoryData())
+    dispatch(getUserData())
+    dispatch(getCategoryData())
   }, [])
 
 

@@ -9,7 +9,7 @@ import { setUserData } from '../redux/user/userSlice'
 import { getCategoryData, setCategoryData } from '../redux/category/categorySlice'
 import Catalog from './Catalog'
 import allEndPoints from '../services/api/api'
-import arrayToTree from '../services/category/category.service'
+import { arrayToTree } from '../services/category/category.service'
 
 // import allEndpoints from '../services/api/api.js'
 // import { set } from 'immer/dist/internal';
