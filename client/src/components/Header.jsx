@@ -6,13 +6,10 @@ import find from '../assets/img/find.png'
 import cart from '../assets/img/cart.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { setUserData } from '../redux/user/userSlice'
-import { getCategoryData, setCategoryData } from '../redux/category/categorySlice'
+import { getCategoryData } from '../redux/category/categorySlice'
 import Catalog from './Catalog'
 import allEndPoints from '../services/api/api'
 import { arrayToTree } from '../services/category/category.service'
-
-// import allEndpoints from '../services/api/api.js'
-// import { set } from 'immer/dist/internal';
 
 function Header() {
 
@@ -22,13 +19,10 @@ function Header() {
     const [categoryVisible, setCategoryVisible] = useState(false)
     const[categoryTree, setCategoryTree] = useState([])
 
-
     useEffect(async() => {
 
         const response = await allEndPoints.category.getCategory()
         setCategoryTree(arrayToTree(response.data.categories))
-
-        // console.log(categoryTree);
 
         dispatch(getCategoryData())
     }, [])
@@ -60,8 +54,6 @@ function Header() {
                     categoryVisible &&
                         <Catalog closeCat={CloseCatalog} arr={categoryTree}/>
                     }
-
-                    
                 </div>
                 <div className={st.finder}>
                     <input type="text" placeholder="ПОИСК" />
@@ -81,7 +73,6 @@ function Header() {
                         :
                             (
                                 <div className={st.auth}>
-                                    {/* <div className={st.loginBtn} onClick={handlerMeClick}>Me</div> */}
                                     <Link className={st.loginBtn} to="/login">Войти</Link>
                                     <Link className={st.registerBtn} to="/register">Регистрация</Link>
                                 </div>

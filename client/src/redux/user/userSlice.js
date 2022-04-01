@@ -8,7 +8,6 @@ const initialState = {
 export const getUserData = createAsyncThunk('user/getUserData', async(_, { rejectWithValue, dispatch }) => {
     // Запрос
     const response = await allEndPoints.auth.getProfile({})
-    // console.log(response.data.user)
     dispatch(setUserData(response.data.user))
 })
 

@@ -10,9 +10,6 @@ a {
 	text-decoration: none;
 }
 
-li{
-    margin-bottom: 40px;
-}
 .catalogMenu{
     background-color: rgba(255, 255, 255, .9);
     position: absolute;
@@ -26,7 +23,6 @@ li{
 .menuList{
     padding-top: 50px;
     display: none;
-    // background-color: #eee;
     height: 100%;
     
 }
@@ -46,6 +42,7 @@ li{
 
 
 .menuItem{
+    margin-bottom: 40px;
     a{
         color: #000;
         font-size: 22px;

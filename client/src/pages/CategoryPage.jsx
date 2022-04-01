@@ -6,12 +6,14 @@ import allEndPoints from '../services/api/api'
 import axiosInstance from '../services/api/axios/axios'
 import st from './categorypage.module.scss'
 import { breadCrumbs, FindIdBySlug } from '../services/category/category.service'
+import FilterProducts from '../components/FilterProducts'
 
 function CategoryPage() {
 
   let { slugUrl } = useParams()
   const [breadCrumbsArr, setBreadCrumbsArr] = useState([])
   const[products, setProducts] = useState([])
+  const[resultProducts, setResultProducts] = useState([])
 
   let allCategory = useSelector(state => state.category.catalog) 
 
@@ -27,27 +29,22 @@ function CategoryPage() {
 
     let categoryId = FindIdBySlug(slugUrl, allCategory)
 
-    // console.log('FindId', FindId(slugUrl, allCategory));
-
     const products = await axiosInstance.get('/api/category/' + categoryId)
-    // console.log('useEffect', products);
 
     setBreadCrumbsArr(breadCrumbs(categoryId, allCategory))
     setProducts(products.data)
   }, [slugUrl])
   
-  
-  
-  // console.log('CategoryPage');
-
   return (
     <div>
       <div className="container">
-        {/* <BreadCrumbs allCatalog={allCategory} slug={slugUrl}/>         */}
-        <BreadCrumbs breadCrumbsArr={breadCrumbsArr}/>        
+        <div className={st.topBlock}>
+          <BreadCrumbs breadCrumbsArr={breadCrumbsArr}/> 
+          <FilterProducts products={products} setResultProducts={setResultProducts}/>
+        </div>
         <ul className={st.card__list}>
           {
-          products.map((item, index) => (
+          resultProducts.map((item, index) => (
             <li className={st.card__item} key={index}>
               <div className={st.card__imgWrap}>
                 <img className={st.card__img} src={"http://localhost:3000/products/" + item.mainPicture} alt="photo product" />

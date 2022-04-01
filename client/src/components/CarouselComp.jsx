@@ -7,21 +7,13 @@ import Slider from "react-slick";
 
 import st from './carousel.module.scss';
 
-// import carouselImg1 from '../assets/img/carousel/1.jpg'
-// import carouselImg2 from '../assets/img/carousel/2.jpg'
-// import carouselImg3 from '../assets/img/carousel/3.jpg'
 import allEndPoints from '../services/api/api';
-
-
-
-
 
 function CarouselComp() {
     const [carouselData, setCarouselData] = useState([])
 
     useEffect(async() => {
         allEndPoints.carousel.getCarousel().then((response) => {
-            console.log('carousel', response.data)
             setCarouselData(response.data)
         })
     }, [])

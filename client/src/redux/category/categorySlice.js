@@ -8,7 +8,6 @@ const initialState = {
 export const getCategoryData = createAsyncThunk('category/getCategoryData', async(_, { rejectWithValue, dispatch }) => {
     // Запрос
     const response = await allEndPoints.category.getCategory({})
-    // console.log(response.data.categories);
     dispatch(setCategoryData(response.data.categories))
 })
 

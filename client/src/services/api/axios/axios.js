@@ -1,6 +1,4 @@
 import axios from "axios"
-// import Cookie from "js-cookie"
-
 
 // HELP http://nestjs-boilerplate-test.herokuapp.com/docs/#/
 const axiosInstance = axios.create({

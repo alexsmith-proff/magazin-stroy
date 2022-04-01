@@ -1,0 +1,28 @@
+.sorting{
+    display: flex;
+    &__title{
+        padding-top: 5px;
+        margin-right: 20px;
+        font-weight: bold;
+        border-bottom: 1px solid #000;
+    }
+}
+.item{
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+    &:last-child{
+        margin-right: 0;
+    }
+    &:hover{
+        border: 1px solid #000;
+    }
+}
+.active{
+    background-color: #000;
+    color: #fff;
+}

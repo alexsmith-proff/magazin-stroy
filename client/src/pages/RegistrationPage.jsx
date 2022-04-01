@@ -3,7 +3,6 @@ import validator from 'validator';
 import { Navigate, useNavigate } from 'react-router';
 
 import st from './registrationpage.module.scss';
-// import { Link } from 'react-router-dom';
 import allEndpoints from '../services/api/api.js';
 
 function RegistrationPage() {
@@ -21,7 +20,6 @@ function RegistrationPage() {
     const [isMessage, setIsMessage] = useState(false);
 
     let navigate = useNavigate();
-
 
     const handleChangeEmail = (e) => {
         setEmail(e.target.value);
@@ -55,24 +53,19 @@ function RegistrationPage() {
         }else if(password.length < 5){
             setIsPasswordAlert(true)
         }else if(password != confirmPassword) {
-            // console.log('password')
             setIsConfirmPasswordAlert(true)
         }else if(firstName == '') {
-            // console.log('firstname')
             setIsFirstNameAlert(true)
         }else if(lastName == '') {
-            // console.log('lastname')
             setIsLastNameAlert(true)
         }else{
           try {
-            // console.log(email, password)
             const response = await allEndpoints.auth.registration({
               "email": email,
               "password": password,
               "firstName": firstName,
               "lastName": lastName
             })
-            console.log(response)
             navigate('/login')          
           } catch (e) {
             if(e.response.status === 422){
@@ -80,7 +73,6 @@ function RegistrationPage() {
             }
             setIsMessage(true)
           }           
-
         } 
     }
 
@@ -103,17 +95,6 @@ function RegistrationPage() {
         <input className={st.input} type="text" value={lastName} onChange={handleChangeLastName} placeholder='Введите фамилию' />
         <button className={st.registerbtn} onClick={handleRegisterClick}>Регистрация</button>
         {isMessage && <div className={st.message}>Ошибка регистрации</div>}
-      
-        {/* <div className={st.checkbox}>
-          <input type="checkbox" name='isMailing'/>
-          <div className={st.checkboxText}>Соглашаюсь на получение рассылки по электронной почте</div>
-        </div>
-        <div className={st.checkbox}>
-          <input type="checkbox" name='isMailing'/>
-          <div className={st.checkboxText}>Соглашаюсь с &nbsp; 
-            <Link to="/" className={st.link}>политикой обработки персональных данных</Link>
-          </div>
-        </div> */}
 
         <div className={st.close} onClick={handleCloseClick}>X</div>
 
@@ -122,14 +103,9 @@ function RegistrationPage() {
         {isConfirmPasswordAlert && <div className={st.alert + ' ' + st.confirmpasswordalert}>Пароль не совпадает</div>}
         {isFirstNameAlert && <div className={st.alert + ' ' + st.firstnamealert}>Введите имя</div>}
         {isLastNameAlert && <div className={st.alert + ' ' + st.lastnamealert}>Введите фамилию</div>}
-
       </div>
-
     </div>
-    
-
   )
-
 }
 
 export default RegistrationPage

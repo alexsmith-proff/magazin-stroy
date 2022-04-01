@@ -1,3 +1,8 @@
+.topBlock{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+}
 .card{
     &__list{
         padding-top: 50px;

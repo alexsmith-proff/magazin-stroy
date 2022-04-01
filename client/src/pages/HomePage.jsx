@@ -5,15 +5,7 @@ import CarouselComp from '../components/CarouselComp'
 function HomePage() {
   return (
     <div>
-
       <CarouselComp />
-      
-      
-      
-      
-            
-      
-
     </div>
   )
 }

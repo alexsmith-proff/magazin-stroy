@@ -6,8 +6,6 @@ import allEndpoints from '../services/api/api.js';
 
 import st from './loginpage.module.scss';
 import { getUserData } from '../redux/user/userSlice.js';
-//import { setUserData } from '../feature/user/userSlice';
-
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -19,7 +17,6 @@ function LoginPage() {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
 
   const handleChangeEmail = (e) => {
       setEmail(e.target.value);
@@ -36,12 +33,10 @@ function LoginPage() {
           setIsPasswordAlert(true)
       }else{
         try {
-          // console.log(email, password)
           const response = await allEndpoints.auth.login({
             "email": email,
             "password": password                              
           })
-          // console.log(response)
           localStorage.setItem('accessToken', response.data.accessToken)
           dispatch(getUserData())
           navigate('/')          
@@ -51,9 +46,6 @@ function LoginPage() {
           }
           setIsMessage(true)
         }
-        
-
-
       }
   }
 
@@ -71,18 +63,13 @@ return (
     </div>
     <input className={st.input} type="text" value={email} onChange={handleChangeEmail} placeholder='E-mail' />
     <input className={st.input} type="password" value={password} onChange={handleChangePassword} placeholder='Пароль' />
-    {/* <input className={st.input} type="password" value={confirmPassword} onChange={handleChangeConfirmPassword} placeholder='Повторите пароль' /> */}
     <button className={st.logbtn} onClick={handleLoginClick}>Вход</button>
     {isMessage && <div className={st.message}>Логин или пароль неверные</div>}
-    
     {isEmailAlert && <div className={st.alert + ' ' + st.mailalert}>Вы ввели некорректный email</div>}
     {isPasswordAlert && <div className={st.alert + ' ' + st.passwordalert}>Пароль должен содержать более 5 символов </div>}
     </div>
   </div>
-  
-
 )
-
 }
 
 export default LoginPage
