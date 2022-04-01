@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import CarouselComp from '../components/CarouselComp'
+import RandomCarousel from '../components/RandomCarousel'
 
 function HomePage() {
   return (
     <div>
       <CarouselComp />
+      <RandomCarousel />
     </div>
   )
 }

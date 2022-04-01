@@ -1,4 +1,5 @@
 import { carouselModel } from "../models/carousel.model.js"
+import { productModel } from "../models/product.model.js"
 
 export async function saveCarouselItemDB(item) {
     // console.log(item)
@@ -14,4 +15,10 @@ export async function saveCarouselItemDB(item) {
 
 export async function getCarousel() {
     return await carouselModel.find().sort({index: 1})
+}
+
+export async function getRandomCarousel() {
+    return await productModel.aggregate([
+       { $sample: {size: 5} }
+    ])
 }
