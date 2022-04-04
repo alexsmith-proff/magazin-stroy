@@ -11,6 +11,7 @@ import FilterProducts from '../components/FilterProducts'
 import RandomCarousel from '../components/RandomCarousel'
 import Products from '../components/Products'
 import SkeletonProducts from '../components/SkeletonProducts'
+import Footer from '../components/Footer'
 
 function CategoryPage() {
 
@@ -57,6 +58,7 @@ function CategoryPage() {
         }        
         <RandomCarousel />
       </div>
+      <Footer />
     </div>
   )
 }

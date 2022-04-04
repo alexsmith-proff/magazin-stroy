@@ -27,11 +27,7 @@ function RandomCarousel() {
 
 
         
-      };
-
-const style = {
-    
-}      
+      };   
 
   return (
     <div >
