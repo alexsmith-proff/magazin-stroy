@@ -36,6 +36,9 @@ const style = {
   return (
     <div >
         <div className="container">
+            <div className={st.title}>
+                <h2 className={st.title__text}>Сегодня покупают</h2>
+            </div>
             <Slider className="random-slider" {...settings}>
                 {
                     carouselData.map((item, index) => (

@@ -1,3 +1,17 @@
+.title{
+    display: flex;
+    justify-content: center;
+    &__text{
+        font-size: 32px;
+        padding-top: 100px;
+        margin-bottom: 70px;
+        position: relative;
+        border-bottom: 4px solid red;
+        padding-bottom: 14px;
+    }
+}
+
+
 .slider{
     padding-top: 100px;
 }
