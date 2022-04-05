@@ -6,6 +6,7 @@ import { getUserData } from './redux/user/userSlice';
 import RoutesApp from './routes/RoutesApp.jsx'
 
 import './App.css'
+import Footer from './components/Footer';
 
 function App() {
   const dispatch = useDispatch()
@@ -19,6 +20,7 @@ function App() {
     <div>
       <Header/>
       <RoutesApp />
+      <Footer />
     </div>
   )
 }
