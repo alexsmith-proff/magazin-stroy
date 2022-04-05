@@ -1,0 +1,39 @@
+.productpage{
+    padding-top: 80px;
+    &__main{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 90px;
+    } 
+    &__additionalinfo{
+        padding-top: 50px;
+    }   
+}
+.maininfo{
+    &__rating{
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+    &__price{
+        margin-bottom: 50px;
+    }
+    &__btn{
+        margin-bottom: 20px;
+    }
+    &__availability{
+        margin-top: 30px;
+        margin-bottom: 80px;
+    }
+    &__deliveryitem{
+        margin-bottom: 20px;
+    }
+    &__deliverycost{
+        display: flex;
+    }
+}
+.additionalinfo{
+    &__title{
+        margin: 50px 0;
+    }
+}

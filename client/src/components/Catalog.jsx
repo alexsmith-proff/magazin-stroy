@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 
 import st from './catalog.module.scss'
 
-function Catalog(props) {
+function Catalog( { closeCat, arr } ) {
 
     function renderChildren(arr) {
         const result = arr.map((item, index) => (
             <li className={st.menuItem} key={index}>
-                <Link to={'category/' + item.slug} onClick={() => props.closeCat()}>
+                <Link to={'category/' + item.slug} onClick={() => closeCat()}>
                     {item.name}
                 </Link>
                 {item.children && renderChildren(item.children)}
@@ -22,9 +22,9 @@ function Catalog(props) {
         <div className="container">
             <ul className={st.menuFirstLevel + ' ' + st.menuList}>
                 {
-                    props.arr.map((item, index) => (
+                    arr.map((item, index) => (
                         <li className={st.menuItem} key={index}>
-                            <Link to={'category/' + item.slug} onClick={() => props.closeCat()}>
+                            <Link to={'category/' + item.slug} onClick={() => closeCat()}>
                                 {item.name}
                             </Link>
                             {item.children && renderChildren(item.children)}

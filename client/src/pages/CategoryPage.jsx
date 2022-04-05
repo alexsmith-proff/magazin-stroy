@@ -11,7 +11,6 @@ import FilterProducts from '../components/FilterProducts'
 import RandomCarousel from '../components/RandomCarousel'
 import Products from '../components/Products'
 import SkeletonProducts from '../components/SkeletonProducts'
-import Footer from '../components/Footer'
 
 function CategoryPage() {
 
@@ -22,12 +21,9 @@ function CategoryPage() {
   const [isLoadingProducts, setIsLoadingProducts] = useState(true)
 
   let allCategory = useSelector(state => state.category.catalog) 
-
-  useEffect(() => {
-    setProducts([])
-  }, [slugUrl])
   
   useEffect(async() => {
+    window.scrollTo(0, 0)
     setIsLoadingProducts(true)
     if(allCategory.length == 0){
       const response = await allEndPoints.category.getCategory()
@@ -58,7 +54,6 @@ function CategoryPage() {
         }        
         <RandomCarousel />
       </div>
-      <Footer />
     </div>
   )
 }

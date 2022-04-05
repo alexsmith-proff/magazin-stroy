@@ -1,12 +1,11 @@
 import { Router } from "express";
 import { saveFile } from "../service/files.service.js";
-import { productSaveDB } from "../service/product.service.js";
+import { getProductById, productSaveDB } from "../service/product.service.js";
 
 export const productRouter = Router()
 
 productRouter.post('/create', async (req, res) => {
     try {
-
         const { name } = req.body
         // if(await productFind(name)) {
         //     return res.status(400).json({
@@ -25,6 +24,17 @@ productRouter.post('/create', async (req, res) => {
     } catch (error) {
         res.status(500).json({
             message: 'Ошибка создания товара'
+        })        
+    }
+})
+
+productRouter.get('/:id', async (req, res) => {
+    try {
+        let product = await getProductById(req.params.id)
+        res.status(200).json(product)
+    } catch (error) {
+        res.status(500).json({
+            message: 'Такой товар не существеут'
         })        
     }
 })

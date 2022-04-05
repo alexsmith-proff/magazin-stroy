@@ -21,3 +21,6 @@ export async function productSaveDB(productData) {
 export async function productFind(name) {
     return await productModel.findOne({name})
 }
+export async function getProductById(_id) {
+    return await productModel.findOne({ _id })
+}
