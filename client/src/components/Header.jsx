@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import st from './header.module.scss'
-import logo from '../assets/img/logo.png'
-import find from '../assets/img/find.png'
-import cart from '../assets/img/cart.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { setUserData } from '../redux/user/userSlice'
 import { getCategoryData } from '../redux/category/categorySlice'
@@ -11,10 +7,17 @@ import Catalog from './Catalog'
 import allEndPoints from '../services/api/api'
 import { arrayToTree } from '../services/category/category.service'
 
+import logo from '../assets/img/logo.png'
+import find from '../assets/img/find.png'
+
+import st from './header.module.scss'
+import CartIcon from './CartIcon'
+
 function Header() {
 
     const dispatch = useDispatch()
-    const userdata = useSelector(state => state.user.user) 
+    const userdata = useSelector(state => state.user.user)
+    const cartProducts = useSelector(state => state.cart.itemsInCart) 
 
     const [categoryVisible, setCategoryVisible] = useState(false)
     const[categoryTree, setCategoryTree] = useState([])
@@ -39,6 +42,8 @@ function Header() {
     function CloseCatalog(e) {
         setCategoryVisible(false)
     }
+
+    console.log('Header cart', cartProducts);
 
   return (
     <div className={st.header}>
@@ -78,10 +83,7 @@ function Header() {
                                 </div>
                             )
                     }
-
-                    <Link to="/cart" className={st.cart}>
-                        <img src={cart} alt="cart" />
-                    </Link>
+                    <CartIcon />                     
                 </div>
             </div>
         </div>        

@@ -1,0 +1,26 @@
+.cart{
+    position: relative;
+    cursor: pointer;
+    img{
+        margin: 0 30px;
+        width: 35px;
+        height: 33px;
+    }
+    &__countproducts{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: -10px;
+        right: 3px;
+        
+        background-color: rgb(207, 0, 0);
+        color: #fff;
+        font-size: 14px;
+        padding: 3px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}

@@ -1,0 +1,22 @@
+.wrap{
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    font-size: 18px;
+    padding: 10px 30px;
+    border: none;
+    background-color: rgb(231, 71, 71);
+    border: 1px solid transparent;      
+    color: #fff;
+    margin-bottom: 20px;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(247, 174, 174);
+        color: #000;  
+        border: 1px solid rgb(231, 71, 71);      
+    }
+}
+.dark{
+    background-color: rgb(167, 60, 60);
+}

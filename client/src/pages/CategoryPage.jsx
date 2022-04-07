@@ -38,7 +38,7 @@ function CategoryPage() {
     setProducts(products.data)
     setIsLoadingProducts(false)
   }, [slugUrl])
-  
+
   return (
     <div>
       <div className="container">
