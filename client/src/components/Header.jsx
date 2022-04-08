@@ -23,10 +23,8 @@ function Header() {
     const[categoryTree, setCategoryTree] = useState([])
 
     useEffect(async() => {
-
         const response = await allEndPoints.category.getCategory()
         setCategoryTree(arrayToTree(response.data.categories))
-
         dispatch(getCategoryData())
     }, [])
     
@@ -43,7 +41,7 @@ function Header() {
         setCategoryVisible(false)
     }
 
-    console.log('Header cart', cartProducts);
+    // console.log('Header cart', cartProducts);
 
   return (
     <div className={st.header}>

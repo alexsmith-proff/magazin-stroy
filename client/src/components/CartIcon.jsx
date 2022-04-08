@@ -13,6 +13,8 @@ function CartIcon() {
         navigate('/cart')
     }
 
+    console.log('CartIcon');
+
   return (
     <div className={st.cart} onClick={handleClick}>
         <img src={cartImg} alt="cart" />
