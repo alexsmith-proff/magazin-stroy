@@ -25,10 +25,10 @@ function CategoryPage() {
   useEffect(async() => {
     window.scrollTo(0, 0)
     setIsLoadingProducts(true)
-    // if(allCategory.length == 0){
-    //   const response = await allEndPoints.category.getCategory()
-    //   allCategory = response.data.categories
-    // }
+    if(allCategory.length == 0){
+      const response = await allEndPoints.category.getCategory()
+      allCategory = response.data.categories
+    }
 
     let categoryId = FindIdBySlug(slugUrl, allCategory)
 

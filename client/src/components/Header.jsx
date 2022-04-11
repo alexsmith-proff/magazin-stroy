@@ -17,7 +17,6 @@ function Header() {
 
     const dispatch = useDispatch()
     const userdata = useSelector(state => state.user.user)
-    const cartProducts = useSelector(state => state.cart.itemsInCart) 
 
     const [categoryVisible, setCategoryVisible] = useState(false)
     const[categoryTree, setCategoryTree] = useState([])

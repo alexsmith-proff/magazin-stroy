@@ -1,0 +1,34 @@
+.total{
+    max-width: 400px;
+    background-color: rgb(223, 208, 252);
+    border-radius: 15px;
+    padding: 20px;
+    &__block{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    &__title{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    &__price{
+        font-size: 26px;
+        font-weight: bold;
+    }
+    &__btn{
+        font-size: 18px;
+        color: #fff;
+        background-color: rgb(27, 27, 75);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    &__text{
+        font-size: 14px;
+        color: rgb(117, 117, 117);
+    }
+}

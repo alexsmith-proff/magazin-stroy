@@ -1,0 +1,14 @@
+.cart{
+    text-align: center;
+    padding-top: 50px;
+    margin-bottom: 50px;
+    &__emptyTitle{
+        font-size: 22px;
+    }
+    &__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+}

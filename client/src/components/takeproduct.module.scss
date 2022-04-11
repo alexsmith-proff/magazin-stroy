@@ -1,0 +1,32 @@
+.list{
+    display: flex;
+    // justify-content: space-around;
+}
+.item{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all .6s;
+    &:hover{
+        border: 1px solid #555;
+    }
+    &.active{
+        border: 1px solid #555;        
+    }
+}
+.item:not(:last-child){
+    margin-right: 30px;    
+}
+.radio{
+    margin-right: 20px;
+}
+.title{
+    // margin: 0 0 10px ;
+    margin: 0;
+}
+.desc{
+    line-height: 40px;
+}
