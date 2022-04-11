@@ -12,10 +12,18 @@
     &__title{
         font-size: 18px;
         font-weight: bold;
+        &.small{
+            font-size: 16px;
+            font-weight: normal;
+        }
     }
     &__price{
         font-size: 26px;
         font-weight: bold;
+        &.small{
+            font-size: 16px;
+            font-weight: normal;
+        }
     }
     &__btn{
         font-size: 18px;
@@ -26,6 +34,7 @@
         align-items: center;
         padding: 10px;
         margin-bottom: 10px;
+        cursor: pointer;
     }
     &__text{
         font-size: 14px;

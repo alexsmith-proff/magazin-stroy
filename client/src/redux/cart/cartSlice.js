@@ -13,10 +13,18 @@ export const cartSlice = createSlice({
         },
         deleteItemFromCart: (state, action) => {
             state.itemsInCart = state.itemsInCart.filter(product => product._id !== action.payload)
+        }, 
+        setCountItem: (state, action) => {
+            state.itemsInCart = state.itemsInCart.map(product => {
+                if(product._id == action.payload._id){
+                    product.count = action.payload.count
+                }
+            return product
+            })
         }
     }
 })
 
 // экспортируем экшен и редьюсер
-export const { setItemInCart, deleteItemFromCart } = cartSlice.actions
+export const { setItemInCart, deleteItemFromCart, setCountItem } = cartSlice.actions
 export default cartSlice.reducer

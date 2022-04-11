@@ -15,7 +15,7 @@ function ProductBuy({ product }) {
         if(isItemInCart) {
             dispatch(deleteItemFromCart(product._id))
         } else {
-            dispatch(setItemInCart(product))
+            dispatch(setItemInCart({...product, count: 1}))
         }
     }
   return (

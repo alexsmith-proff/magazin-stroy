@@ -6,15 +6,27 @@ import ProductBlockInCart from '../components/ProductBlockInCart';
 import TotalBlock from '../components/TotalBlock';
 
 import st from './cartpage.module.scss'
+import RandomCarousel from '../components/RandomCarousel';
 
 function CartPage() {
   const mas = [1,4,6,78,9,5,77]
   const user = useSelector(state => state.user.user)
   const products = useSelector(state => state.cart.itemsInCart)
+  const [productPrice, setProductPrice] = useState(null)
+  const [deliveryPrice, setDeliveryPrice] = useState(null)
   const [totalPrice, setTotalPrice] = useState(null)
 
   useEffect(() => {
-    setTotalPrice(products.reduce((accumulator, currentValue) => accumulator + currentValue.price , 0))
+    const price = products.reduce((accumulator, currentValue) => accumulator + currentValue.price * currentValue.count , 0)
+
+    if (price < 2500) {
+      setTotalPrice(price + 2500)
+      setDeliveryPrice(2500)
+    }else {
+      setTotalPrice(price)
+      setDeliveryPrice(0)
+    }
+    setProductPrice(price)
   }, [products])
   console.log('CartPage');
 
@@ -34,13 +46,12 @@ function CartPage() {
               <Warning>Оформите заказ от 2500 руб и получите бесплатную доставку</Warning>
               <div className={st.cart__container}>
                 <ProductBlockInCart products={products} />
-                <TotalBlock totalPrice={totalPrice}/>
+                <TotalBlock productPrice={productPrice} deliveryPrice={deliveryPrice} totalPrice={totalPrice}/>
               </div>
-              
-
             </>
           )
         }
+        <RandomCarousel />
 
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useNavigate } from 'react-router';
-import ProductBuy from './ProductBuy';
+import { useNavigate } from 'react-router'
+import ProductBuy from './ProductBuy'
 
 
 import st from './productitem.module.scss'

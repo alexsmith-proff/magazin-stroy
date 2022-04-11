@@ -1,0 +1,13 @@
+.counter{
+    display: flex;
+    &__btn{
+        font-size: 18px;
+        margin-right: 7px;
+    }
+    &__input{
+        width: 30px;
+        font-size: 18px;
+        text-align: center;
+        margin-right: 7px;
+    }
+}
