@@ -12,7 +12,41 @@
     } 
     &__additionalinfo{
         padding-top: 50px;
-    }   
+    } 
+    @media screen and (max-width: 1300px){
+        &__main{
+            &photo{
+                margin-right: 0px;
+            }
+        } 
+    }  
+    @media screen and (max-width: 1024px){
+        &__main{
+            &photo{
+                img{
+                    width: 400px;
+                }
+            }
+        } 
+    }
+    @media screen and (max-width: 768px){
+        &__main{
+            flex-direction: column;
+            &photo{
+                text-align: center;
+                margin-bottom: 50px;
+            }
+        } 
+    }
+    @media screen and (max-width: 480px){
+        &__main{
+            &photo{
+                img{
+                    max-width: 100%;
+                }
+            }
+        } 
+    }
 
 }
 .maininfo{
@@ -54,6 +88,20 @@
             width: 15px;
             height: 15px;
             margin-right: 15px;
+        }
+    }
+}
+@media screen and (max-width: 480px){
+    .maininfo{
+        &__price{
+            text-align: center;            
+        }
+        &__btn{
+            font-size: 20px;
+            width: 100%;
+        }
+        &__availability{
+            text-align: center;
         }
     }
 }

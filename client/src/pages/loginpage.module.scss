@@ -5,6 +5,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    z-index: 99;
 }
 .form{
     background-color: #fff;
@@ -12,7 +13,7 @@
     font-size: 18px;
     line-height: 18px;
     width: 476px;
-    padding: 30px;
+    padding: 40px;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     box-sizing: border-box;
@@ -20,6 +21,18 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    position: relative;
+}
+.close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 16px;
+    padding: 5px;
+    cursor: pointer;    
+}
+.close:hover{
+    background-color: #ddd;
 }
 .titlewrap{
     display: flex;

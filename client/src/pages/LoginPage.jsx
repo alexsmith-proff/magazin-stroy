@@ -24,6 +24,10 @@ function LoginPage() {
   const handleChangePassword = (e) => {
       setPassword(e.target.value);
   }
+  const handleCloseClick = (e) => {
+    navigate('/')
+  }
+
   const handleLoginClick = async() => {
       setIsEmailAlert(false)
       setIsPasswordAlert(false)
@@ -64,6 +68,9 @@ return (
     <input className={st.input} type="text" value={email} onChange={handleChangeEmail} placeholder='E-mail' />
     <input className={st.input} type="password" value={password} onChange={handleChangePassword} placeholder='Пароль' />
     <button className={st.logbtn} onClick={handleLoginClick}>Вход</button>
+
+    <div className={st.close} onClick={handleCloseClick}>X</div>
+
     {isMessage && <div className={st.message}>Логин или пароль неверные</div>}
     {isEmailAlert && <div className={st.alert + ' ' + st.mailalert}>Вы ввели некорректный email</div>}
     {isPasswordAlert && <div className={st.alert + ' ' + st.passwordalert}>Пароль должен содержать более 5 символов </div>}

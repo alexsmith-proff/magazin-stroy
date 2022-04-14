@@ -32,9 +32,9 @@ function ProductCounter({ product }) {
     }
   return (
     <div className={st.counter}>
-        <button className={st.counter__btn} onClick={handleClickDec}>-</button>
+        <div className={st.counter__btn} onClick={handleClickDec}>-</div>
         <input className={st.counter__input} type="text" value={count} onChange={handleChange} onKeyPress={handleKeyPress} />
-        <button className={st.counter__btn} onClick={handleClickInc}>+</button>
+        <div className={st.counter__btn} onClick={handleClickInc}>+</div>
     </div>
   )
 }

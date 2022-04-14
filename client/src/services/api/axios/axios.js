@@ -2,7 +2,8 @@ import axios from "axios"
 
 // HELP http://nestjs-boilerplate-test.herokuapp.com/docs/#/
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:3000/'
+    // baseURL: 'http://194.87.95.149:5000'
+    baseURL: 'http://localhost:3000'
 })
 
 axiosInstance.interceptors.request.use(config => {

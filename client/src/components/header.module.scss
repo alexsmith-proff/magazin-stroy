@@ -12,6 +12,9 @@
         justify-content: space-between;
     }
 }
+.mobileLogo{
+    display: none;
+}
 .wrapL, .wrapR{
     display: flex;
     align-items: center;
@@ -28,7 +31,7 @@
     line-height: 34px;
     color: rgb(252, 7, 7);
 }
-.catalog{
+.catalogDesktop{
     margin-left: 10px;
     font-weight: 600;
     border: 1px solid #222;
@@ -37,10 +40,10 @@
     background-color: rgb(252, 7, 7);
     color: #fff;
     cursor: pointer;
-}
-.catalog:hover{
-    background-color: #fff;
-    color: rgb(252, 7, 7);
+    &:hover{
+        background-color: #fff;
+        color: rgb(252, 7, 7);
+    }
 }
 .finder{
     display: flex;
@@ -57,12 +60,13 @@
         cursor: pointer;
     }
 }
+
 .auth{
     display: flex;
     align-items: center;
     margin-left: 30px;
 }
-.name{
+.username{
     font-size: 16px;
     color: #000;
     // min-width: 210px;
@@ -93,4 +97,115 @@
 .registerBtn:hover{
     background-color: #fff;
     color: rgb(33, 138, 33); 
+}
+
+.burger{
+    width: 40px;
+    height: 4px;
+    background-color: #000;
+    position: relative;
+    &:before{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 4px;
+        position: absolute;
+        top: -10px;
+        left: 0;
+        background-color: #000;
+    }
+    &:after{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 4px;
+        position: absolute;
+        top: 10px;
+        left: 0;
+        background-color: #000;
+    }
+}
+
+.menu{
+    background-color: rgba(0, 0, 0, .99);
+    position: absolute;
+    left: 0;
+    top: 72px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    ul{
+        width: 80%;
+        height: 100%;      
+        padding-top: 80px;  
+        // background-color: #000;
+        text-align: center;
+    }
+    li{
+        font-size: 32px;
+        font-weight: bold;
+        color: #fff;
+        padding: 10px 0;
+        margin-bottom: 30px;
+        a{
+            color: #fff;
+        }
+        &:hover{
+            color: #000;
+            background-color: #fff;
+        }
+        &:hover a {
+            color: #000;
+            background-color: #fff;
+        }
+    }
+    li:first-child{
+        margin-bottom: 60px;
+    }
+}
+
+@media screen and (max-width: 860px){
+    .finder{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .mobileLogo{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .wrapL{
+        display: none;
+    }
+    .wrapR{
+        display: none;
+    }
+    .name{
+        font-size: 22px;
+    }
+}
+@media screen and (max-width: 480px){
+    .logo img{
+        width: 45px;
+    }
+    .name{
+        margin-left: 10px;
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 380px){
+    .name{
+        font-size: 16px;
+    }
+    .burger{
+        width: 30px;
+    }
+}
+@media screen and (max-width: 480px){
+    .menu{
+        top: 57px;
+    }
 }

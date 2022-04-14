@@ -20,6 +20,7 @@ function CarouselComp() {
 
     var settings = {
         dots: false,
+        arrows: false,
         infinite: true,
         autoplaySpeed: 7000, // Время между кадрами 7 сек
         speed: 3000, // Плавность перехода 3 сек

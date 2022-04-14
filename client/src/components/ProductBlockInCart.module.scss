@@ -1,0 +1,9 @@
+.productsTitle{
+    margin: 20px 0 30px;
+}
+
+@media screen and(max-width: 1024px) {
+    .productsTitle{
+        text-align: center;
+    }
+}

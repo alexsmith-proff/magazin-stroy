@@ -1,6 +1,10 @@
 .list{
     display: flex;
-    // justify-content: space-around;
+}
+@media screen and (max-width: 860px) {
+    .list{
+        flex-direction: column;
+    }
 }
 .item{
     display: flex;
@@ -24,9 +28,21 @@
     margin-right: 20px;
 }
 .title{
-    // margin: 0 0 10px ;
     margin: 0;
 }
 .desc{
     line-height: 40px;
+}
+@media screen and (max-width: 860px) {
+    .item:not(:last-child){
+        margin-right: 0; 
+        margin-bottom: 30px;   
+    }
+    .title{
+        margin-bottom: 10px;
+    }
+    .desc{
+        line-height: 20px;
+        margin-bottom: 5px;
+    }
 }

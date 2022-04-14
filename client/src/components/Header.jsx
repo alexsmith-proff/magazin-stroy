@@ -6,12 +6,11 @@ import { getCategoryData } from '../redux/category/categorySlice'
 import Catalog from './Catalog'
 import allEndPoints from '../services/api/api'
 import { arrayToTree } from '../services/category/category.service'
-
 import logo from '../assets/img/logo.png'
 import find from '../assets/img/find.png'
+import CartIcon from './CartIcon'
 
 import st from './header.module.scss'
-import CartIcon from './CartIcon'
 
 function Header() {
 
@@ -19,6 +18,8 @@ function Header() {
     const userdata = useSelector(state => state.user.user)
 
     const [categoryVisible, setCategoryVisible] = useState(false)
+    const [categoryVisibleMobile, setCategoryVisibleMobile] = useState(false)
+    const [menuVisible, setMenuVisible] = useState(false)
     const[categoryTree, setCategoryTree] = useState([])
 
     useEffect(async() => {
@@ -27,17 +28,27 @@ function Header() {
         dispatch(getCategoryData())
     }, [])
     
-    const handlerLogoutClick = () => {
+    function handlerLogoutClick() {
         localStorage.removeItem('accessToken');
         dispatch(setUserData({}))
     }
 
-    async function handleClickCatalog() {
+    function handleClickCatalog() {
         setCategoryVisible(!categoryVisible)
+    }
+    function handleClickCatalogMobile() {
+        setMenuVisible(!menuVisible)
+        setCategoryVisibleMobile(!categoryVisibleMobile)
     }
 
     function CloseCatalog(e) {
         setCategoryVisible(false)
+    }
+    function CloseCatalogMobile(e) {
+        setCategoryVisibleMobile(false)
+    }
+    function handleClickMenu() {
+        setMenuVisible(!menuVisible)
     }
 
     // console.log('Header cart', cartProducts);
@@ -45,13 +56,21 @@ function Header() {
   return (
     <div className={st.header}>
         <div className="container">
+            <div className={st.mobileLogo}>
+                <div className={st.burger} onClick={handleClickMenu}></div>
+                <Link to="/" className={st.logo}>
+                    <img src={logo} alt="logo" />
+                        <div className={st.name}>СтройМагазин</div>
+                </Link>
+                <CartIcon /> 
+            </div>
             <div className={st.headerWrap}>
                 <div className={st.wrapL}>
                     <Link to="/" className={st.logo}>
                         <img src={logo} alt="logo" />
                         <div className={st.name}>СтройМагазин</div>
                     </Link>
-                    <div className={st.catalog} onClick={handleClickCatalog}>КАТАЛОГ</div>
+                    <div className={st.catalogDesktop} onClick={handleClickCatalog}>КАТАЛОГ</div>
                     {
                     categoryVisible &&
                         <Catalog closeCat={CloseCatalog} arr={categoryTree}/>
@@ -59,16 +78,16 @@ function Header() {
                 </div>
                 <div className={st.finder}>
                     <input type="text" placeholder="ПОИСК" />
-                        <div className={st.finderBtn}>
-                            <img src={find} alt="find" />
-                        </div>
+                    <div className={st.finderBtn}>
+                        <img src={find} alt="find" />
+                    </div>
                 </div>
                 <div className={st.wrapR}>
                     {
                         Object.keys(userdata).length ?
                             (
                                 <>
-                                <div className={st.name}>Привет, {userdata.surname} {userdata.name} </div>
+                                <div className={st.username}>Привет, {userdata.surname} {userdata.name} </div>
                                 <Link className={st.loginBtn} to="/" onClick={handlerLogoutClick}>Выйти</Link>
                                 </>
                             )
@@ -83,6 +102,28 @@ function Header() {
                     <CartIcon />                     
                 </div>
             </div>
+            {
+                menuVisible && 
+                    <div className={st.menu}>
+                        <ul>
+                            <li onClick={handleClickCatalogMobile}>
+                                КАТАЛОГ
+                            </li>
+                            <li>
+                                <Link to="/login" onClick={handleClickMenu}>ВОЙТИ</Link>
+                            </li>
+                            <li>
+                                <Link to="/register" onClick={handleClickMenu}>РЕГИСТРАЦИЯ</Link>
+                            </li>
+                        </ul>
+                    </div>
+            }
+            {
+                categoryVisibleMobile &&
+                <Catalog closeCat={CloseCatalogMobile} arr={categoryTree}/>
+            }
+            
+            
         </div>        
     </div>
   )

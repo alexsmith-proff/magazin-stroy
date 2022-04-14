@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import allEndPoints from '../services/api/api'
 
 import st from './randomcarousel.module.scss';
-import './randomcarousel.css';
+// import './randomcarousel.css';
 
 import Slider from "react-slick";
 
@@ -17,17 +17,39 @@ function RandomCarousel() {
 
     var settings = {
         dots: true,
-        arrows: true,
+        arrows: false,
         infinite: true,
         autoplaySpeed: 5000, // Время между кадрами 5 сек
         speed: 1000, // Плавность перехода 1 сек
         autoplay: true,
         slidesToShow: 4,
         slidesToScroll: 1,
+        responsive: [
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 3,
+              }
+            },
+            {
+                breakpoint: 870,
+                settings: {
+                  slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 580,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                }
+            }
+            
+          ]
 
 
         
-      };   
+      }  
 
   return (
     <div >

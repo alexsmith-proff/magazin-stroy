@@ -6,6 +6,12 @@
         font-weight: bold;
         border-bottom: 1px solid #000;
     }
+    @media screen and (max-width: 768px){
+        &__title{
+            display: none;
+        }
+    }
+
 }
 .item{
     padding: 5px 10px;
@@ -25,4 +31,14 @@
 .active{
     background-color: #000;
     color: #fff;
+}
+@media screen and (max-width: 481px){
+    .item{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 340px){
+    .item{
+        font-size: 12px;
+    }
 }

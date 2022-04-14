@@ -24,7 +24,6 @@ categoryRouter.post('/create', async (req, res) => {
 categoryRouter.get('/', async (req, res) => {
     try {
         const categories = await getCategories()
-
         res.status(200).json({
             categories
         })        

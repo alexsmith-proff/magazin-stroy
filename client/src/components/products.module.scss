@@ -5,4 +5,15 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         grid-gap: 30px;
     }
+    @media screen and(max-width: 649px) {
+        &__list{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+
+            // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            // text-align: center;
+        }                
+    }
 }

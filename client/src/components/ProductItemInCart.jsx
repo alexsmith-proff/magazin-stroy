@@ -19,18 +19,30 @@ function ProductItemInCart({ item }) {
   return (
     <div>
         <li className={st.product__item}>
-            <img className={st.product__img} src={"http://localhost:3000/products/" + item.mainPicture} alt="photo product" onClick={handleClick}/>
-            <div className={st.product__name} onClick={handleClick}>{item.name}</div>
-            <ProductCounter product={item}/>
-            <div>
-                <div className={st.product__totalprice}>{item.price * item.count} р</div>
-                <div className={st.product__oneprice}>{item.price} р/шт</div>
+            <div className={st.product__itemLeft}>
+                <img className={st.product__img} src={"http://localhost:3000/products/" + item.mainPicture} alt="photo product" onClick={handleClick}/>
+                <div className={st.product__name} onClick={handleClick}>{item.name}</div>
             </div>
-            <AiOutlineDelete
-                className={st.product__delete}
-                size={25}
-                onClick={handleClickDelete}
-            />
+            <div className={st.product__itemRight}>
+                <div className={st.product__counter}>
+                    <ProductCounter product={item}/>
+                </div>
+                <div className={st.product__priceDelete}>
+                    <div>
+                        <div className={st.product__totalprice}>{item.price * item.count} р</div>
+                        <div className={st.product__oneprice}>{item.price} р/шт</div>
+                    </div>
+                    <AiOutlineDelete
+                        className={st.product__delete}
+                        size={25}
+                        onClick={handleClickDelete}
+                    />
+                </div>
+
+                
+            </div>
+            
+            
         </li>  
     </div>
   )

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import BreadCrumbs from '../components/BreadCrumbs'
 import allEndPoints from '../services/api/api'
 import axiosInstance from '../services/api/axios/axios'
+
 import st from './categorypage.module.scss'
 
 import { breadCrumbs, FindIdBySlug } from '../services/category/category.service'

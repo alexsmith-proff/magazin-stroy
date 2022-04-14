@@ -66,7 +66,7 @@ function Footer() {
                             </li>
                         </ul>
                     </li>
-                    <li className={st.footer__item}>
+                    <li className={st.footer__item + ' ' + st.footer__social}>
                         <a href="#">
                             <img className={st.footer__ico} src={insta} alt="insta" />
                         </a>
@@ -80,7 +80,21 @@ function Footer() {
                             <img className={st.footer__ico} src={googleplay} alt="googleplay" />
                         </a>    
                     </li>
-                </ul>            
+                </ul> 
+                <li className={st.footer__item + ' ' + st.footer__social + ' ' + st.footer__mobileSocial}>
+                    <a href="#">
+                        <img className={st.footer__ico} src={insta} alt="insta" />
+                    </a>
+                    <a href="#">
+                        <img className={st.footer__ico} src={facebook} alt="facebook" />
+                    </a>
+                    <a href="#">
+                        <img className={st.footer__ico} src={apple} alt="inapplesta" />
+                    </a>    
+                    <a href="#">
+                        <img className={st.footer__ico} src={googleplay} alt="googleplay" />
+                    </a>    
+                </li>
             </div>
         </div>
         <div className={st.underfooter}>
