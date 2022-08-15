@@ -1,19 +1,19 @@
 # eCommerce magazin-stroy (MERN)
 The website displays products cards. Users can add or remove products to the cart
 
-##Demo website
+## Demo website
 Demo: [http://62.3.58.148](http://62.3.58.148/)
 <br>
 ![title](title.jpg)
 
-##Stack
+## Stack
 * Node
 * Express
 * MongoDB
 * React
 * Redux
   
-##RUN
+## RUN
 #### 1. Clone repository
 ```
 $ git clone https://github.com/alexsmith-proff/magazin-stroy.git
