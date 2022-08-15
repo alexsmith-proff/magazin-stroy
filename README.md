@@ -4,7 +4,7 @@ The website displays products cards. Users can add or remove products to the car
 ## Demo website
 Demo: [http://62.3.58.148](http://62.3.58.148/)
 <br>
-![title](title.jpg)
+![title](title.png)
 
 ## Stack
 * Node
