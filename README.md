@@ -1,10 +1,12 @@
 # eCommerce magazin-stroy (MERN)
 The website displays products cards. Users can add or remove products to the cart
+<br>
+<br>
+![title](title.png)
 
 ## Demo website
 Demo: [http://62.3.58.148](http://62.3.58.148/)
-<br>
-<br>
+
 ![title](title.gif)
 
 ## Stack
