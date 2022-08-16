@@ -1,5 +1,5 @@
 # eCommerce magazin-stroy (MERN)
-The website displays products cards. Users can add or remove products to the cart
+The website displays products cards. Users can add or remove products to the cart. Website contains authorization
 <br>
 <br>
 ![title](title.png)
